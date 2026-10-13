@@ -12,13 +12,10 @@ CREATE TABLE majors (
     name VARCHAR(50) NOT NULL UNIQUE
 );
 
--- Seed Data: Majors
-INSERT INTO majors (id, name) VALUES
-(1, 'Informatics'),
-(2, 'Information Systems'),
-(3, 'Computer Science');
+INSERT INTO majors (name) VALUES
+('Informatics'), ('Information Systems'), ('Computer Science');
 
--- 2) Students table with Foreign Key referencing majors(id)
+-- 2) Students table (with foreign key referencing majors)
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nim VARCHAR(20) NOT NULL,
@@ -29,14 +26,14 @@ CREATE TABLE students (
     ON DELETE RESTRICT
 );
 
--- Seed Data: Sample Students
+-- 3) Sample data
 INSERT INTO students (nim, name, major_id) VALUES
 ('2301001', 'Andi Pratama', 1),
 ('2301002', 'Siti Rahma', 2),
 ('2301003', 'Budi Santoso', 1),
 ('2301004', 'Dewi Lestari', 3);
 
--- 3) Users table for login & role-based access
+-- 4) Users table for login
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -44,9 +41,8 @@ CREATE TABLE users (
     role ENUM('admin', 'staff') NOT NULL DEFAULT 'staff'
 );
 
--- Seed Data: Default User Accounts
--- admin: admin123
--- staff: staff123
+-- Seed data for default accounts (admin / admin123, staff / staff123)
+-- Required for evaluator login since seed_admin.php is deleted
 INSERT INTO users (username, password, role) VALUES
 ('admin', '$2y$10$Z7nAyfXB2BLhPISpJ0SoIeQ/yAw7D8W/zmwa.bfqQjfuACj9ynaeS', 'admin'),
 ('staff', '$2y$10$BocwRgOM3McsgZF2bYiwnOkg/Fv5wewuuL4/ZoxyvHiLaT8p81Pcq', 'staff');
