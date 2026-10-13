@@ -1,32 +1,8 @@
-# Student Management Web Application
-
-A PHP and MySQL-based student management system featuring authentication, role-based access control (Admin & Staff), and relational database operations (CRUD) with foreign keys.
-
-## Student Identity
+## Identity
 
 | Name | NRP |
 | :--- | :--- |
 | Naila Sa'ada Cahyani | 5025251258 |
-
----
-
-## Project Structure
-
-```text
-student-app/
-├── auth.php        # Session guard and role helper functions (is_admin, require_admin)
-├── config.php      # Database connection configuration (MySQL/MariaDB via mysqli)
-├── create.php      # Form to insert new student records with dynamic majors dropdown
-├── db_school.sql   # Complete database schema and initial seed data
-├── delete.php      # Admin-restricted student deletion handler
-├── edit.php        # Pre-populated form to update student records
-├── index.php       # Protected dashboard listing students with INNER JOIN to majors
-├── login.php       # Authentication form with password hashing verification
-├── logout.php      # Session destruction and logout handler
-├── navbar.php      # Reusable navigation bar with role-aware links and user badge
-├── README.md       # Project documentation and setup instructions
-└── users.php       # Admin-only user management interface to create and list users
-```
 
 ---
 
@@ -54,7 +30,6 @@ The database dump includes pre-seeded accounts:
      ```bash
      mysql -u root -p < db_school.sql
      ```
-     *(If running default XAMPP without a MySQL password, press Enter when prompted).*
 
 The SQL file automatically creates the `db_school` database if it doesn't already exist and sets up:
 - **`majors` table:** `id` (PK), `name` (unique).
